@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Ловец лидов</h1>
+    <!-- roistat -->
     <script>
         (function(w, d, s, h, id) {
             w.roistatProjectId = id; w.roistatHost = h;
@@ -15,6 +16,27 @@
             var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
             var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
         })(window, document, 'script', 'cloud.roistat.com', '5f0dd745831d113cfe388be0c33e5325');
-        </script>
+    </script>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(73997299, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/73997299" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script>
+    window.onRoistatAllModulesLoaded = function() {
+        window.roistat.leadHunter.onAfterSubmit = function(leadData) {
+            ym(73997299, 'reachGoal', 'LEADHUNTER'); //XXXXXX --- номер вашего счетчика Яндекс.Метрики; TARGET_NAME --- идентификатор цели.
+    }
+};
+</script>
 </body>
 </html>
